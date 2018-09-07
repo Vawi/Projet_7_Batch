@@ -1,5 +1,5 @@
 
-package org.val.win;
+package org.val.win.model;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -25,20 +25,13 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _NotFoundException_QNAME = new QName("http://contract.service.win.val.org/", "NotFoundException");
+    private final static QName _Emprunt_QNAME = new QName("http://contract.service.win.val.org/", "emprunt");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.val.win
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link AnyTypeArray }
-     * 
-     */
-    public AnyTypeArray createAnyTypeArray() {
-        return new AnyTypeArray();
     }
 
     /**
@@ -58,14 +51,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link LocalDate }
-     * 
-     */
-    public LocalDate createLocalDate() {
-        return new LocalDate();
-    }
-
-    /**
      * Create an instance of {@link Utilisateur }
      * 
      */
@@ -79,6 +64,14 @@ public class ObjectFactory {
      */
     public Ouvrage createOuvrage() {
         return new Ouvrage();
+    }
+
+    /**
+     * Create an instance of {@link EmpruntArray }
+     * 
+     */
+    public EmpruntArray createEmpruntArray() {
+        return new EmpruntArray();
     }
 
     /**
@@ -96,6 +89,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://contract.service.win.val.org/", name = "NotFoundException")
     public JAXBElement<NotFoundException> createNotFoundException(NotFoundException value) {
         return new JAXBElement<NotFoundException>(_NotFoundException_QNAME, NotFoundException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Emprunt }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://contract.service.win.val.org/", name = "emprunt")
+    public JAXBElement<Emprunt> createEmprunt(Emprunt value) {
+        return new JAXBElement<Emprunt>(_Emprunt_QNAME, Emprunt.class, null, value);
     }
 
 }

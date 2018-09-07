@@ -2,6 +2,15 @@
 <import namespace="http://contract.service.win.val.org/" location="http://localhost:8080/service?wsdl=1"/>
 <binding xmlns:ns1="http://contract.service.win.val.org/" name="P7ServiceImplPortBinding" type="ns1:P7Service">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+<operation name="getListEmprunt">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal" namespace="http://contract.service.win.val.org/"/>
+</input>
+<output>
+<soap:body use="literal" namespace="http://contract.service.win.val.org/"/>
+</output>
+</operation>
 <operation name="emprunt">
 <soap:operation soapAction=""/>
 <input>
@@ -13,15 +22,6 @@
 <fault name="NotFoundException">
 <soap:fault name="NotFoundException" use="literal"/>
 </fault>
-</operation>
-<operation name="getListEmprunt">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal" namespace="http://contract.service.win.val.org/"/>
-</input>
-<output>
-<soap:body use="literal" namespace="http://contract.service.win.val.org/"/>
-</output>
 </operation>
 <operation name="getListEmpruntUtilisateur">
 <soap:operation soapAction=""/>

@@ -1,5 +1,5 @@
 
-package org.val.win;
+package org.val.win.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

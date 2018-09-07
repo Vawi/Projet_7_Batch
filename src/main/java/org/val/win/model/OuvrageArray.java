@@ -1,5 +1,5 @@
 
-package org.val.win;
+package org.val.win.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour anyTypeArray complex type.
+ * <p>Classe Java pour ouvrageArray complex type.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="anyTypeArray"&gt;
+ * &lt;complexType name="ouvrageArray"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="item" type="{http://www.w3.org/2001/XMLSchema}anyType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="item" type="{http://contract.service.win.val.org/}ouvrage" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -29,13 +29,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "anyTypeArray", namespace = "http://jaxb.dev.java.net/array", propOrder = {
+@XmlType(name = "ouvrageArray", propOrder = {
     "item"
 })
-public class AnyTypeArray {
+public class OuvrageArray {
 
     @XmlElement(nillable = true)
-    protected List<Object> item;
+    protected List<Ouvrage> item;
 
     /**
      * Gets the value of the item property.
@@ -55,13 +55,13 @@ public class AnyTypeArray {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Object }
+     * {@link Ouvrage }
      * 
      * 
      */
-    public List<Object> getItem() {
+    public List<Ouvrage> getItem() {
         if (item == null) {
-            item = new ArrayList<Object>();
+            item = new ArrayList<Ouvrage>();
         }
         return this.item;
     }
