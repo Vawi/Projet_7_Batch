@@ -1,6 +1,7 @@
 package org.val.win.service;
 
-import org.val.win.model.*;
+import org.val.win.model.bean.*;
+import org.val.win.model.exception.NotFoundException_Exception;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;

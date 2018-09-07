@@ -1,5 +1,7 @@
 
-package org.val.win.model;
+package org.val.win.model.bean;
+
+import org.val.win.model.exception.NotFoundException;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;

@@ -6,7 +6,8 @@ package org.val.win.service;
  * This class is not complete
  */
 
-import org.val.win.model.*;
+import org.val.win.model.bean.*;
+import org.val.win.model.exception.NotFoundException_Exception;
 
 import java.io.File;
 import java.net.MalformedURLException;
