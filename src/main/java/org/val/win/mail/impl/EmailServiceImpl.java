@@ -13,6 +13,13 @@ public class EmailServiceImpl implements EmailService {
     @Inject
     public JavaMailSender mailSender;
 
+    /**
+     * Methode pour envoyer des messages
+     * @param to le destinataire
+     * @param subject le sujet du mail
+     * @param text le contenu du mail
+     */
+    @Override
     public void sendSimpleMessage(String to, String subject, String text) {
 
         SimpleMailMessage message = new SimpleMailMessage();

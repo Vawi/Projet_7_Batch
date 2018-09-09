@@ -11,6 +11,10 @@ import java.util.Properties;
 @Named
 public class BiblioMailSenderImpl implements BiblioMailSender {
 
+    /**
+     * Mise en place de la boite d'envoie des emails
+     * @return le mailSender pour envoyer les mails
+     */
     @Bean
     public JavaMailSender mailSender() {
 

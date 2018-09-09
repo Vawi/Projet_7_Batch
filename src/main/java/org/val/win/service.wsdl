@@ -89,6 +89,15 @@
 <soap:body use="literal" namespace="http://contract.service.win.val.org/"/>
 </output>
 </operation>
+<operation name="getUtilisateur">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal" namespace="http://contract.service.win.val.org/"/>
+</input>
+<output>
+<soap:body use="literal" namespace="http://contract.service.win.val.org/"/>
+</output>
+</operation>
 </binding>
 <service name="P7ServiceImplService">
 <port name="P7ServiceImplPort" binding="tns:P7ServiceImplPortBinding">
