@@ -11,6 +11,7 @@ import java.util.Properties;
 @Named
 public class BiblioMailSenderImpl implements BiblioMailSender {
 
+    @Bean
     public JavaMailSender mailSender() {
 
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
