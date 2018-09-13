@@ -8,6 +8,7 @@ import org.val.win.model.bean.Emprunt;
 import org.val.win.model.bean.EmpruntArray;
 import org.val.win.model.exception.NotFoundException_Exception;
 
+import javax.inject.Named;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -99,5 +100,13 @@ public interface P7Service {
     public Utilisateur getUtilisateur(
         @WebParam(partName = "arg0", name = "arg0")
         int arg0
+    );
+
+    @WebMethod
+    @Action(input = "http://contract.service.win.val.org/P7Service/getOuvrageRequest", output = "http://contract.service.win.val.org/P7Service/getOuvrageResponse")
+    @WebResult(name = "return", targetNamespace = "http://contract.service.win.val.org/", partName = "return")
+    public Ouvrage getOuvrage(
+            @WebParam(partName = "arg0", name = "arg0")
+                    int arg0
     );
 }

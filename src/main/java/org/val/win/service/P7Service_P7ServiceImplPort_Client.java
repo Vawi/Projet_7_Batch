@@ -130,6 +130,13 @@ public final class P7Service_P7ServiceImplPort_Client {
 
         }
 
+        {
+            System.out.println("Invoking getOuvrage...");
+            int _getOuvrage_arg0 = 0;
+            Ouvrage _getOuvrage__return = port.getOuvrage(_getOuvrage_arg0);
+            System.out.println("getOuvrage.result=" + _getOuvrage__return);
+        }
+
         System.exit(0);
     }
 

@@ -22,7 +22,7 @@ public class BiblioMailSenderImpl implements BiblioMailSender {
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
 
-        mailSender.setUsername("Biblio.gmail@gmail.com");
+        mailSender.setUsername("Biblio.biblio@gmail.com");
         mailSender.setPassword("MDPbiblio");
 
         Properties props = mailSender.getJavaMailProperties();
