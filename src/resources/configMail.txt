@@ -1,2 +1,0 @@
-sujet="Retard Emprunt"
-text="Vous avez un emprunt en retard, veuillez le rendre au plus vite"

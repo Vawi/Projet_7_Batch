@@ -6,14 +6,13 @@ import org.junit.runner.RunWith;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 import org.val.win.model.bean.Emprunt;
-import org.val.win.model.bean.EmpruntArray;
 import org.val.win.model.bean.Ouvrage;
+import org.val.win.model.bean.Utilisateur;
 import org.val.win.service.P7Service;
 import org.val.win.service.P7ServiceImplService;
 
-import javax.inject.Inject;
+
 import javax.xml.namespace.QName;
 import java.net.URL;
 import java.util.List;
@@ -41,6 +40,12 @@ public class P7ServiceTest {
         String nomOuvrage = ouvrage.getNomOuvrage();
         System.out.println(nomOuvrage);
         Assert.assertNotNull(ouvrage);
+    }
+
+    @Test
+    public void getUtilisateur() {
+        Utilisateur utilisateur = port.getUtilisateur(2);
+        Assert.assertNotNull(utilisateur);
     }
 
 }
