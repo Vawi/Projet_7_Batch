@@ -6,6 +6,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 
 import static java.util.concurrent.TimeUnit.HOURS;
+import static java.util.concurrent.TimeUnit.MINUTES;
 
 /**
  * Classe qui permettra de faire tourner le batch toutes les 24h
@@ -37,6 +38,6 @@ public class Launcher {
 
         scheduler.schedule(new Runnable() {
             public void run() { retardHandler.cancel(true); }
-        }, 1, HOURS);
+        }, 5, MINUTES);
     }
 }

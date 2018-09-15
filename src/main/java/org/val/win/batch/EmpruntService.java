@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.val.win.mail.contract.EmailService;
 import org.val.win.model.bean.Emprunt;
+import org.val.win.model.bean.Ouvrage;
 import org.val.win.model.bean.Utilisateur;
 import org.val.win.service.P7Service;
 import org.val.win.service.P7ServiceImplService;
@@ -14,6 +15,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.xml.namespace.QName;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,6 +54,19 @@ public class EmpruntService {
                         .after(LocalDate.now()))
                 .collect(Collectors.toList());
         return ListEmpruntRetard;
+    }
+
+    public List<Ouvrage> listOuvrageRetard() {
+
+        List<Emprunt> vListEmprunt = listEmpruntRetard();
+        List<Ouvrage> vListOuvrage = new ArrayList<Ouvrage>();
+
+        for (int i = 0; i < vListEmprunt.size(); i++) {
+            Ouvrage pOuvrage = port.getOuvrage(vListEmprunt.get(i).getIdOuvrage());
+            vListOuvrage.add(pOuvrage);
+        }
+
+        return vListOuvrage;
     }
 
     /**

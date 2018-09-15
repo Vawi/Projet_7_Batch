@@ -22,8 +22,8 @@ public class BiblioMailSenderImpl implements BiblioMailSender {
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
 
-        mailSender.setUsername("Biblio.biblio@gmail.com");
-        mailSender.setPassword("MDPbiblio");
+        mailSender.setUsername("vawiopc@gmail.com");
+        mailSender.setPassword("vawitestmdp");
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
