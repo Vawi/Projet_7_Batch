@@ -25,6 +25,9 @@ import java.util.stream.Collectors;
 public class EmpruntService {
 
 
+    /**
+     * Connection au webservice
+     */
     private static final QName SERVICE_NAME = new QName("http://impl.service.win.val.org/", "P7ServiceImplService");
     URL wsdlURL = P7ServiceImplService.WSDL_LOCATION;
     P7ServiceImplService ss = new P7ServiceImplService(wsdlURL, SERVICE_NAME);
@@ -56,6 +59,10 @@ public class EmpruntService {
         return ListEmpruntRetard;
     }
 
+    /**
+     * Lister les ouvrages en retard
+     * @return une liste d'ouvrage en retard
+     */
     public List<Ouvrage> listOuvrageRetard() {
 
         List<Emprunt> vListEmprunt = listEmpruntRetard();
