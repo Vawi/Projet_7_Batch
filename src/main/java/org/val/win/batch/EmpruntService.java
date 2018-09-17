@@ -1,6 +1,5 @@
 package org.val.win.batch;
 
-import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -16,6 +15,7 @@ import javax.inject.Named;
 import javax.xml.namespace.QName;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,11 +52,11 @@ public class EmpruntService {
 
         List<Emprunt> vListEmprunt = port.getListEmprunt().getItem();
 
-        List<Emprunt> ListEmpruntRetard = vListEmprunt.stream()
+        List<Emprunt> vListEmpruntRetard = vListEmprunt.stream()
                 .filter(p -> p.getDateFin().toGregorianCalendar()
-                        .after(LocalDate.now()))
+                        .before(GregorianCalendar.getInstance()))
                 .collect(Collectors.toList());
-        return ListEmpruntRetard;
+        return vListEmpruntRetard;
     }
 
     /**
