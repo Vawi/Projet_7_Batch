@@ -7,12 +7,15 @@ import org.junit.runner.RunWith;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.val.win.batch.EmpruntService;
+import org.val.win.mail.contract.EmailService;
 import org.val.win.model.bean.Emprunt;
 import org.val.win.model.bean.Ouvrage;
 import org.val.win.model.bean.Utilisateur;
 import org.val.win.service.P7Service;
 import org.val.win.service.P7ServiceImplService;
 
+import javax.inject.Inject;
 import javax.xml.namespace.QName;
 import java.net.URL;
 import java.util.GregorianCalendar;
@@ -20,6 +23,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class EmpruntServiceTest {
+
+    @Inject
+    private EmpruntService empruntService;
+
+    @Inject
+    private EmailService emailService;
+
+    private Utilisateur pUtilisateur;
 
     private static final QName SERVICE_NAME = new QName("http://impl.service.win.val.org/", "P7ServiceImplService");
     URL wsdlURL = P7ServiceImplService.WSDL_LOCATION;
@@ -41,6 +52,18 @@ public class EmpruntServiceTest {
         System.out.println(vListEmpruntRetard);
 
         Assert.assertNotNull(vListEmpruntRetard);
+
+    }
+
+    @Test
+    public void envoiRetard() {
+
+        String sujet = "Emprunt en retard";
+        String textMessage = "Retard";
+        String add = "valentin.winnen@orange.fr";
+
+        emailService.sendSimpleMessage(add, sujet, textMessage);
+
 
     }
 }
