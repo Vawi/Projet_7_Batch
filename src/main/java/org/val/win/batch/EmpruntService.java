@@ -1,16 +1,12 @@
 package org.val.win.batch;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.val.win.mail.contract.EmailService;
 import org.val.win.model.bean.Emprunt;
 import org.val.win.model.bean.Ouvrage;
 import org.val.win.model.bean.Utilisateur;
 import org.val.win.service.P7Service;
 import org.val.win.service.P7ServiceImplService;
+import org.val.win.util.ContextLoader;
 
-import javax.inject.Inject;
 import javax.inject.Named;
 import javax.xml.namespace.QName;
 import java.net.URL;
@@ -19,30 +15,21 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Configuration
-@PropertySource("classpath:configurationMail.properties")
+
 @Named
 public class EmpruntService {
 
-
-    /**
-     * Connection au webservice
-     */
-    private static final QName SERVICE_NAME = new QName("http://impl.service.win.val.org/", "P7ServiceImplService");
-    URL wsdlURL = P7ServiceImplService.WSDL_LOCATION;
-    P7ServiceImplService ss = new P7ServiceImplService(wsdlURL, SERVICE_NAME);
-    P7Service port = ss.getP7ServiceImplPort();
-
-    @Inject
-    private EmailService emailService;
+    P7Service port;
 
     private Utilisateur pUtilisateur;
 
-    @Value( "${mail.sujet}" )
-    private String sujet;
+    public EmpruntService(){
+        final QName SERVICE_NAME = new QName("http://impl.service.win.val.org/", "P7ServiceImplService");
+        URL wsdlURL = P7ServiceImplService.WSDL_LOCATION;
+        P7ServiceImplService ss = new P7ServiceImplService(wsdlURL, SERVICE_NAME);
+        port = ss.getP7ServiceImplPort();
 
-    @Value( "${mail.text}" )
-    private String textMessage;
+    }
 
     /**
      * Recuperer la liste des emprunts en retard
@@ -83,10 +70,11 @@ public class EmpruntService {
     public void envoiRetard() {
 
         List<Emprunt> vListEmprunt = listEmpruntRetard();
-
+        System.out.println("vListEmprunt.size() = " + vListEmprunt.size());
         for (int i = 0; i < vListEmprunt.size(); i++) {
+            System.out.println("vListEmprunt.get(i).getIdOuvrage() = " + vListEmprunt.get(i).getIdOuvrage());
             pUtilisateur = port.getUtilisateur(vListEmprunt.get(i).getIdUtilisateur());
-            emailService.sendSimpleMessage(pUtilisateur.getMail(), sujet, textMessage);
+            ContextLoader.INSTANCE.getEmailService().sendSimpleMessage(pUtilisateur.getMail());
         }
     }
 

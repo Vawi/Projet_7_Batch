@@ -58,11 +58,9 @@ public class EmpruntServiceTest {
     @Test
     public void envoiRetard() {
 
-        String sujet = "Emprunt en retard";
-        String textMessage = "Retard";
         String add = "valentin.winnen@orange.fr";
 
-        emailService.sendSimpleMessage(add, sujet, textMessage);
+        emailService.sendSimpleMessage(add);
 
 
     }
