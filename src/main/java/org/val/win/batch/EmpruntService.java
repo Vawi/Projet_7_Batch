@@ -21,8 +21,6 @@ public class EmpruntService {
 
     P7Service port;
 
-    private Utilisateur pUtilisateur;
-
     public EmpruntService(){
         final QName SERVICE_NAME = new QName("http://impl.service.win.val.org/", "P7ServiceImplService");
         URL wsdlURL = P7ServiceImplService.WSDL_LOCATION;
@@ -69,6 +67,7 @@ public class EmpruntService {
      */
     public void envoiRetard() {
 
+        Utilisateur pUtilisateur;
         List<Emprunt> vListEmprunt = listEmpruntRetard();
         System.out.println("vListEmprunt.size() = " + vListEmprunt.size());
         for (int i = 0; i < vListEmprunt.size(); i++) {
