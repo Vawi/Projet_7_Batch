@@ -1,12 +1,10 @@
 package org.val.win.batch;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 
-import static java.util.concurrent.TimeUnit.HOURS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**

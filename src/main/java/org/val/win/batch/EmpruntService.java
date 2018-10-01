@@ -69,9 +69,8 @@ public class EmpruntService {
 
         Utilisateur pUtilisateur;
         List<Emprunt> vListEmprunt = listEmpruntRetard();
-        System.out.println("vListEmprunt.size() = " + vListEmprunt.size());
+
         for (int i = 0; i < vListEmprunt.size(); i++) {
-            System.out.println("vListEmprunt.get(i).getIdOuvrage() = " + vListEmprunt.get(i).getIdOuvrage());
             pUtilisateur = port.getUtilisateur(vListEmprunt.get(i).getIdUtilisateur());
             ContextLoader.INSTANCE.getEmailService().sendSimpleMessage(pUtilisateur.getMail());
         }

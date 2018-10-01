@@ -16,7 +16,7 @@ public enum ContextLoader {
     ContextLoader() {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
-        empruntService = (EmpruntService) context.getBean("empruntManagerImpl");
+        empruntService = (EmpruntService) context.getBean("empruntService");
         emailService = (EmailServiceImpl)context.getBean("emailServiceImpl");
     }
 
