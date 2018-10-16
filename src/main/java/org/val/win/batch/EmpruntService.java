@@ -73,6 +73,7 @@ public class EmpruntService {
         for (int i = 0; i < vListEmprunt.size(); i++) {
             pUtilisateur = port.getUtilisateur(vListEmprunt.get(i).getIdUtilisateur());
             ContextLoader.INSTANCE.getEmailService().sendSimpleMessage(pUtilisateur.getMail());
+            System.out.println(pUtilisateur + "email envoyé");
         }
     }
 
