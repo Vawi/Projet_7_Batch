@@ -73,11 +73,16 @@ public class EmpruntService {
 
         Utilisateur pUtilisateur;
         List<Emprunt> vListEmprunt = listEmpruntRetard();
+        List<Ouvrage> vOuvrageRetard = listOuvrageRetard();
+        List<Utilisateur> vListUtilisateur = new ArrayList<>();
 
         for (int i = 0; i < vListEmprunt.size(); i++) {
             pUtilisateur = port.getUtilisateur(vListEmprunt.get(i).getIdUtilisateur());
-            ContextLoader.INSTANCE.getEmailService().sendSimpleMessage(pUtilisateur.getMail());
-            System.out.println(pUtilisateur + "email envoyé");
+            vListUtilisateur.add(pUtilisateur);
+            if (!vListUtilisateur.contains(pUtilisateur)) {
+                ContextLoader.INSTANCE.getEmailService().sendSimpleMessage(pUtilisateur.getMail(), vOuvrageRetard);
+                System.out.println(pUtilisateur + "email envoyé");
+            }
         }
     }
 

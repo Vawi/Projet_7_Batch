@@ -16,6 +16,5 @@ public class EmpruntTask implements Runnable{
     @Override
     public void run() {
         ContextLoader.INSTANCE.getEmpruntService().envoiRetard();
-        ContextLoader.INSTANCE.getEmpruntService().
     }
 }
