@@ -41,6 +41,10 @@ public class EmpruntService {
                 .filter(p -> p.getDateFin().toGregorianCalendar()
                         .before(GregorianCalendar.getInstance()))
                 .collect(Collectors.toList());
+
+        for (Emprunt emprunt : vListEmprunt) {
+            emprunt.setEtat("Retard");
+        }
         return vListEmpruntRetard;
     }
 
