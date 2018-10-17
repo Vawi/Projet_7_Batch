@@ -43,7 +43,7 @@ public class EmpruntService {
                 .collect(Collectors.toList());
 
         for (Emprunt emprunt : vListEmprunt) {
-            emprunt.setEtat("Retard");
+            port.retardEmprunt(emprunt);
         }
         return vListEmpruntRetard;
     }

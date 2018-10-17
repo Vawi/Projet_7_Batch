@@ -3,12 +3,14 @@ package org.val.win;
 import org.junit.Assert;
 import org.junit.Test;
 import org.val.win.model.bean.Emprunt;
+import org.val.win.model.bean.Ouvrage;
 import org.val.win.service.P7Service;
 import org.val.win.service.P7ServiceImplService;
 import org.val.win.util.ContextLoader;
 
 import javax.xml.namespace.QName;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -41,9 +43,11 @@ public class EmpruntServiceTest {
     @Test
     public void envoiRetard() {
 
+        List<Ouvrage> vlist = new ArrayList<>();
+
         String add = "valentin.winnen@orange.fr";
 
-        ContextLoader.INSTANCE.getEmailService().sendSimpleMessage(add);
+        ContextLoader.INSTANCE.getEmailService().sendSimpleMessage(add, vlist);
 
         Assert.assertNotNull(add);
 
