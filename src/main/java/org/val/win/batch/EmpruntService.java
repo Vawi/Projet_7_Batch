@@ -39,7 +39,7 @@ public class EmpruntService {
 
         List<Emprunt> vListEmpruntRetard = vListEmprunt.stream()
                 .filter(p -> p.getDateFin().toGregorianCalendar()
-                        .before(GregorianCalendar.getInstance()))
+                        .before(GregorianCalendar.getInstance())).filter(p -> !p.getEtat().equals("Terminé"))
                 .collect(Collectors.toList());
 
         for (Emprunt emprunt : vListEmprunt) {
@@ -73,15 +73,14 @@ public class EmpruntService {
 
         Utilisateur pUtilisateur;
         List<Emprunt> vListEmprunt = listEmpruntRetard();
-        List<Ouvrage> vOuvrageRetard = listOuvrageRetard();
         List<Utilisateur> vListUtilisateur = new ArrayList<>();
 
         for (int i = 0; i < vListEmprunt.size(); i++) {
+            List<Ouvrage> vOuvrageRetard = listOuvrageRetard();
             pUtilisateur = port.getUtilisateur(vListEmprunt.get(i).getIdUtilisateur());
-            vListUtilisateur.add(pUtilisateur);
             if (!vListUtilisateur.contains(pUtilisateur)) {
                 ContextLoader.INSTANCE.getEmailService().sendSimpleMessage(pUtilisateur.getMail(), vOuvrageRetard);
-                System.out.println(pUtilisateur + "email envoyé");
+                vListUtilisateur.add(pUtilisateur);
             }
         }
     }
