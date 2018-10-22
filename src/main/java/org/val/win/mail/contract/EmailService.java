@@ -10,6 +10,6 @@ public interface EmailService {
      * Methode pour envoyer des messages
      * @param to le destinataire
      */
-    void sendSimpleMessage(String to, List<Ouvrage> listOuvrage);
+    void sendSimpleMessage(String to, List<String> listOuvrage);
 
 }

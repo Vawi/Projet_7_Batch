@@ -39,10 +39,11 @@ public class EmpruntService {
 
         List<Emprunt> vListEmpruntRetard = vListEmprunt.stream()
                 .filter(p -> p.getDateFin().toGregorianCalendar()
-                        .before(GregorianCalendar.getInstance())).filter(p -> !p.getEtat().equals("Terminé"))
+                        .before(GregorianCalendar.getInstance()))
+                .filter(p -> !p.getEtat().equals("Terminé"))
                 .collect(Collectors.toList());
 
-        for (Emprunt emprunt : vListEmprunt) {
+        for (Emprunt emprunt : vListEmpruntRetard) {
             port.retardEmprunt(emprunt);
         }
         return vListEmpruntRetard;
@@ -52,14 +53,14 @@ public class EmpruntService {
      * Lister les ouvrages en retard
      * @return une liste d'ouvrage en retard
      */
-    public List<Ouvrage> listOuvrageRetard() {
+    public List<String> listOuvrageRetard() {
 
         List<Emprunt> vListEmprunt = listEmpruntRetard();
-        List<Ouvrage> vListOuvrage = new ArrayList<Ouvrage>();
+        List<String> vListOuvrage = new ArrayList<>();
 
         for (int i = 0; i < vListEmprunt.size(); i++) {
             Ouvrage pOuvrage = port.getOuvrage(vListEmprunt.get(i).getIdOuvrage());
-            vListOuvrage.add(pOuvrage);
+            vListOuvrage.add(pOuvrage.getNomOuvrage());
         }
 
         return vListOuvrage;
@@ -76,7 +77,7 @@ public class EmpruntService {
         List<Utilisateur> vListUtilisateur = new ArrayList<>();
 
         for (int i = 0; i < vListEmprunt.size(); i++) {
-            List<Ouvrage> vOuvrageRetard = listOuvrageRetard();
+            List<String> vOuvrageRetard = listOuvrageRetard();
             pUtilisateur = port.getUtilisateur(vListEmprunt.get(i).getIdUtilisateur());
             if (!vListUtilisateur.contains(pUtilisateur)) {
                 ContextLoader.INSTANCE.getEmailService().sendSimpleMessage(pUtilisateur.getMail(), vOuvrageRetard);

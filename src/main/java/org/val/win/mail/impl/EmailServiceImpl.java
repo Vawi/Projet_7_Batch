@@ -31,7 +31,7 @@ public class EmailServiceImpl implements EmailService {
      * @param to le destinataire
      */
     @Override
-    public void sendSimpleMessage(String to, List<Ouvrage> listOuvrage) {
+    public void sendSimpleMessage(String to, List<String> listOuvrage) {
 
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);

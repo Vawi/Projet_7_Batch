@@ -43,7 +43,7 @@ public class EmpruntServiceTest {
     @Test
     public void envoiRetard() {
 
-        List<Ouvrage> vlist = new ArrayList<>();
+        List<String> vlist = new ArrayList<>();
 
         String add = "valentin.winnen@orange.fr";
 

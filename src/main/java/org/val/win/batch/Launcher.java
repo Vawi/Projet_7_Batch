@@ -17,6 +17,6 @@ public class Launcher {
         final ScheduledExecutorService scheduler =
                 Executors.newScheduledThreadPool(1);
         final ScheduledFuture<?> retardHandler =
-                scheduler.scheduleAtFixedRate(new EmpruntTask(), 0, 5, SECONDS);
+                scheduler.scheduleAtFixedRate(new EmpruntTask(), 0, 30, SECONDS);
     }
 }
