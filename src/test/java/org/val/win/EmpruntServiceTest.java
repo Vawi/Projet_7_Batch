@@ -40,16 +40,4 @@ public class EmpruntServiceTest {
 
     }
 
-    @Test
-    public void envoiRetard() {
-
-        List<String> vlist = new ArrayList<>();
-
-        String add = "valentin.winnen@orange.fr";
-
-        ContextLoader.INSTANCE.getEmailService().sendSimpleMessage(add, vlist);
-
-        Assert.assertNotNull(add);
-
-    }
 }
