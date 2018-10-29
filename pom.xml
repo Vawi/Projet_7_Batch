@@ -19,29 +19,6 @@
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.5</version>
-        <configuration>
-          <!-- Configures the created archive -->
-          <archive>
-            <!-- Configures the content of the created manifest -->
-            <manifest>
-              <!-- Adds the classpath to the created manifest -->
-              <addClasspath>true</addClasspath>
-              <!--
-                  Specifies that all dependencies of our application are found
-                  from the lib directory.
-              -->
-              <classpathPrefix>lib/</classpathPrefix>
-              <!-- Configures the main class of the application -->
-              <mainClass>org.val.win.batch.Launcher</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
         <version>2.5.1</version>
         <configuration>
@@ -50,10 +27,17 @@
             <descriptor>src/main/assembly/assembly.xml</descriptor>
           </descriptors>
         </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
-  <packaging>jar</packaging>
 
   <name>Projet7_Batch</name>
   <url>http://maven.apache.org</url>
