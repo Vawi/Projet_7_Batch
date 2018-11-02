@@ -53,14 +53,18 @@ public class EmpruntService {
      * Lister les ouvrages en retard
      * @return une liste d'ouvrage en retard
      */
-    public List<String> listOuvrageRetard() {
+    public List<String> listOuvrageRetard(Utilisateur pUtilisateur) {
 
         List<Emprunt> vListEmprunt = listEmpruntRetard();
         List<String> vListOuvrage = new ArrayList<>();
 
         for (int i = 0; i < vListEmprunt.size(); i++) {
             Ouvrage pOuvrage = port.getOuvrage(vListEmprunt.get(i).getIdOuvrage());
-            vListOuvrage.add(pOuvrage.getNomOuvrage());
+            for (Emprunt emprunt: vListEmprunt) {
+                if (pUtilisateur.getIdUtilisateur().equals(emprunt.getIdUtilisateur())) {
+                    vListOuvrage.add(pOuvrage.getNomOuvrage());
+                }
+            }
         }
 
         return vListOuvrage;
@@ -77,8 +81,8 @@ public class EmpruntService {
         List<Utilisateur> vListUtilisateur = new ArrayList<>();
 
         for (int i = 0; i < vListEmprunt.size(); i++) {
-            List<String> vOuvrageRetard = listOuvrageRetard();
             pUtilisateur = port.getUtilisateur(vListEmprunt.get(i).getIdUtilisateur());
+            List<String> vOuvrageRetard = listOuvrageRetard(pUtilisateur);
             if (!vListUtilisateur.contains(pUtilisateur)) {
                 ContextLoader.INSTANCE.getEmailService().sendSimpleMessage(pUtilisateur.getMail(), vOuvrageRetard);
                 vListUtilisateur.add(pUtilisateur);
