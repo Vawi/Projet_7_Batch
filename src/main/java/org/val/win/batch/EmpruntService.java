@@ -76,9 +76,9 @@ public class EmpruntService {
      */
     public void envoiRetard() {
 
-        Utilisateur pUtilisateur;
         List<Emprunt> vListEmprunt = listEmpruntRetard();
         List<Utilisateur> vListUtilisateur = new ArrayList<>();
+        Utilisateur pUtilisateur;
 
         for (int i = 0; i < vListEmprunt.size(); i++) {
             pUtilisateur = port.getUtilisateur(vListEmprunt.get(i).getIdUtilisateur());
