@@ -39,7 +39,7 @@ public class EmailServiceImpl implements EmailService {
     @Override
     public void sendSimpleMessage(String to, List<String> listOuvrage) {
 
-        if (activation == false) {
+        if (!activation) {
 
             logger.warn("Envoie d\'email désactivé");
 
