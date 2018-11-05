@@ -29,6 +29,7 @@
             <includes>
                 <include>startup.*</include>
             </includes>
+            <fileMode>0755</fileMode>
         </fileSet>
         <!--
             Adds the jar file of our example application to the root directory
@@ -40,6 +41,11 @@
             <includes>
                 <include>*.jar</include>
             </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>src/resources/conf</directory>
+            <outputDirectory>conf</outputDirectory>
         </fileSet>
     </fileSets>
 </assembly>

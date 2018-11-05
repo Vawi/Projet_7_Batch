@@ -3,8 +3,6 @@ package org.val.win.mail.impl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.val.win.mail.contract.EmailService;
@@ -13,8 +11,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 
-@Configuration
-@PropertySource("classpath:configurationMail.properties")
 @Named
 public class EmailServiceImpl implements EmailService {
 
