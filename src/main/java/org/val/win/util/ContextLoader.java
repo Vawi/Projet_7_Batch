@@ -20,10 +20,6 @@ public enum ContextLoader {
         emailService = (EmailServiceImpl)context.getBean("emailServiceImpl");
     }
 
-    public ContextLoader getInstance() {
-        return INSTANCE;
-    }
-
     public EmpruntService getEmpruntService() {
         return empruntService;
     }

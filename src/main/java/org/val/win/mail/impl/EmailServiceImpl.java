@@ -45,6 +45,8 @@ public class EmailServiceImpl implements EmailService {
             message.setSubject(sujet);
             message.setText(textMessage + listOuvrage);
             mailSender.send(message);
+
+            logger.info("Email de relance envoyé à :" + to + " concernant les ouvrages :" + listOuvrage);
         }
 
 

@@ -39,7 +39,10 @@ public interface P7Service {
     @WebMethod
     @Action(input = "http://contract.service.win.val.org/P7Service/getListDispoRequest", output = "http://contract.service.win.val.org/P7Service/getListDispoResponse")
     @WebResult(name = "return", targetNamespace = "http://contract.service.win.val.org/", partName = "return")
-    public OuvrageArray getListDispo();
+    public OuvrageArray getListDispo(
+            @WebParam(partName = "arg0", name = "arg0")
+                    Utilisateur arg0
+    );
 
     @WebMethod
     @Action(input = "http://contract.service.win.val.org/P7Service/getListEmpruntRequest", output = "http://contract.service.win.val.org/P7Service/getListEmpruntResponse")
@@ -78,13 +81,18 @@ public interface P7Service {
     @WebMethod
     @Action(input = "http://contract.service.win.val.org/P7Service/getListOuvrageRequest", output = "http://contract.service.win.val.org/P7Service/getListOuvrageResponse")
     @WebResult(name = "return", targetNamespace = "http://contract.service.win.val.org/", partName = "return")
-    public OuvrageArray getListOuvrage();
+    public OuvrageArray getListOuvrage(
+            @WebParam(partName = "arg0", name = "arg0")
+                    Utilisateur arg0
+    );
 
     @WebMethod
     @Action(input = "http://contract.service.win.val.org/P7Service/prolongationEmpruntRequest", output = "http://contract.service.win.val.org/P7Service/prolongationEmpruntResponse")
     public void prolongationEmprunt(
         @WebParam(partName = "arg0", name = "arg0")
-        Emprunt arg0
+        Emprunt arg0,
+        @WebParam(partName = "arg1", name = "arg1")
+        Utilisateur arg1
     );
 
     @WebMethod

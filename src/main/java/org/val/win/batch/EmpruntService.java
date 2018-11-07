@@ -1,5 +1,7 @@
 package org.val.win.batch;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.val.win.model.bean.Emprunt;
 import org.val.win.model.bean.Ouvrage;
 import org.val.win.model.bean.Utilisateur;
@@ -18,6 +20,8 @@ import java.util.stream.Collectors;
 
 @Named
 public class EmpruntService {
+
+    public static final Logger logger = LogManager.getLogger(EmpruntService.class);
 
     P7Service port;
 
@@ -88,6 +92,7 @@ public class EmpruntService {
                 vListUtilisateur.add(pUtilisateur);
             }
         }
+
     }
 
 }
