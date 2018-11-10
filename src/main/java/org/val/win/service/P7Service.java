@@ -41,7 +41,7 @@ public interface P7Service {
     @WebResult(name = "return", targetNamespace = "http://contract.service.win.val.org/", partName = "return")
     public OuvrageArray getListDispo(
             @WebParam(partName = "arg0", name = "arg0")
-                    Utilisateur arg0
+            java.lang.String arg0
     );
 
     @WebMethod
@@ -83,7 +83,7 @@ public interface P7Service {
     @WebResult(name = "return", targetNamespace = "http://contract.service.win.val.org/", partName = "return")
     public OuvrageArray getListOuvrage(
             @WebParam(partName = "arg0", name = "arg0")
-                    Utilisateur arg0
+                    java.lang.String arg0
     );
 
     @WebMethod
@@ -92,7 +92,7 @@ public interface P7Service {
         @WebParam(partName = "arg0", name = "arg0")
         Emprunt arg0,
         @WebParam(partName = "arg1", name = "arg1")
-        Utilisateur arg1
+        java.lang.String arg1
     );
 
     @WebMethod

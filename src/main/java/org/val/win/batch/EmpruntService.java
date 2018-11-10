@@ -62,12 +62,10 @@ public class EmpruntService {
         List<Emprunt> vListEmprunt = listEmpruntRetard();
         List<String> vListOuvrage = new ArrayList<>();
 
-        for (int i = 0; i < vListEmprunt.size(); i++) {
-            Ouvrage pOuvrage = port.getOuvrage(vListEmprunt.get(i).getIdOuvrage());
-            for (Emprunt emprunt: vListEmprunt) {
-                if (pUtilisateur.getIdUtilisateur().equals(emprunt.getIdUtilisateur())) {
-                    vListOuvrage.add(pOuvrage.getNomOuvrage());
-                }
+        for (Emprunt emprunt: vListEmprunt) {
+            if (pUtilisateur.getIdUtilisateur().equals(emprunt.getIdUtilisateur())) {
+                Ouvrage pOuvrage = port.getOuvrage(emprunt.getIdOuvrage());
+                vListOuvrage.add(pOuvrage.getNomOuvrage());
             }
         }
 
