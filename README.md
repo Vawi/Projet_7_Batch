@@ -1,4 +1,6 @@
-#Batch du projet 7
+# Batch du projet 7
+
+[![CodeFactor](https://www.codefactor.io/repository/github/vawi/projet_7_batch/badge)](https://www.codefactor.io/repository/github/vawi/projet_7_batch)
 
 Cette partie de l'application permet d'envoyer automatiquement des emails de relance aux utilisateurs ayant des emprunts en retard. 
 Ce batch a deux objectifs : 
